@@ -1,0 +1,24 @@
+package com.bayviewglen.daytwo;
+
+public class HomeworkFour {
+
+	public static void main(String[] args) {
+		System.out.println("/////////////////////////////////////////////////////////////////////");
+		System.out.println("/								    /");
+		System.out.println("/		      Our Lady of Mercy Hospital		    /");
+		System.out.println("/		      --------------------------		    /");
+		System.out.println("/         Emergency Room                                   $150     /");
+		System.out.println("/         Medical Check Up                                 $600     /");
+		System.out.println("/         Pharmacy                                         $100     /");
+		System.out.println("/         Total Amount                                     $850     /");
+		System.out.println("/         Insurance Payments                               $-850    /");
+		System.out.println("/         Balance Due                                      $0       /");
+		System.out.println("/						                    /");
+		System.out.println("/			   1306 Central City  	                    /");
+		System.out.println("/		          Phone (416) 555-1212			    /");
+		System.out.println("/						                    /");
+		System.out.println("/////////////////////////////////////////////////////////////////////");
+
+	}
+
+}
