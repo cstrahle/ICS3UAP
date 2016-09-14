@@ -14,6 +14,7 @@ public class HomeworkFive {
 		int bracketFour = i - bracketThree;
 		
 		System.out.println(bracketFour);
+		System.out.println("");
 	// b)
 		System.out.println((x - y) * (x + ( i - j)));
 		
@@ -24,6 +25,7 @@ public class HomeworkFive {
 		double sum = bbracketThree * bbracketTwo;
 		
 		System.out.println(sum);
+		System.out.println("");
 	// c)
 		System.out.println((x - y) - (y - x) - (x - y) - (y - x));
 		
@@ -33,6 +35,60 @@ public class HomeworkFive {
 		sum = cbracket13 - cbracket24 - cbracket13 - cbracket24;
 		
 		System.out.println(sum);
+		System.out.println("");
+	// d)
+		System.out.println((x - y) - ((y - x) - ((x - y) - (y - x))));
+		
+		double dBracketOne = x - y;
+		double dBracketTwo = y - x;
+		double dBracketThree = x - y;
+		double dBracketFour = y - x;
+		
+		double dBracketSumOne = dBracketOne - dBracketTwo;
+		double dBracketSumTwo = dBracketFour - dBracketSumOne;
+		double dBracketSumThree = dBracketOne - dBracketSumTwo;
+		
+		System.out.println(dBracketSumThree);
+		System.out.println("");
+	// e)
+		System.out.println(i + j - k * i / j);
+		
+		double eMultiply = k * i;
+		double eDivision = eMultiply / j;
+		double eSubtraction = j - eDivision;
+		double eAddition = i + eSubtraction;
+		
+		
+		//double eProductOne = eMultiply / eDivision;
+		//double eProductTwo = ;
+		
+		System.out.println(eAddition);
+		System.out.println("");
+	// f)
+		System.out.println(i * j / k + i - j);
+		
+		double fMultiply = i * j;
+		double fDivision = fMultiply / k;
+		double fAddition = fDivision + i;
+		
+		double fProduct = ((int)fAddition - j);
+		
+		System.out.println(fProduct);
+		System.out.println("");
+	// g)
+		System.out.println(((i + k) * (i - k)) / ((i + j) * ( i - j)));
+		
+		double gBracketOne = i + k;
+		double gBracketTwo = i - k;
+		double gBracketThree = i + j;
+		double gBracketFour = i - j;
+		
+		double gSumOne = gBracketOne * gBracketTwo;
+		double gSumTwo = gBracketThree * gBracketFour;
+		double gProduct = ((int)gSumOne / (int)gSumTwo);
+		
+		System.out.println(gProduct);
+		System.out.println("");
 	// h)
 		System.out.println((double) i + j / k);
 		
@@ -42,6 +98,7 @@ public class HomeworkFive {
 		double hProduct = hAddition;
 		
 		System.out.println(hAddition);
+		System.out.println("");
 	// i)
 		System.out.println((int) x / k - x / k);
 		
@@ -51,7 +108,8 @@ public class HomeworkFive {
 		double iProduct = ((int)iDivisionOne - iDivisionTwo);
 		
 		System.out.println(iProduct);
-	// j)
+		System.out.println("");
+		// j)
 		System.out.println((double) i / j - (double) (i / j));
 		
 		double jBracketOne = (double)i / j;
