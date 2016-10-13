@@ -429,21 +429,27 @@ public class XCountryAssignment {
 		System.out.println("Your total time was: " + r5TotalTimeFinal);
 		System.out.println("");
 		System.out.println("");
-		
-		//Close the keyboard
-		
+
+		// Close the keyboard
+
 		keyboard.close();
-		
-		//Final Overall Runner Chart
-		
+
+		// Final Overall Runner Chart
+
 		System.out.println("Congratulation runners on finishing the race. Here is the summary chart of your races:");
 		System.out.println("**************************************************************************************");
-		System.out.printf("%15s%20s%20s%20s%20s%20s\n", "Runner Number", "Runner Name", "Split One Time", "Split Two time", "Split Three Time", "Total Time");
-		System.out.printf("%15s%20s%20s%20s%20s%20s\n", "1.", r1Name, r1MileOneFinal, r1MileTwoFormatted, r1MileThreeFormatted, r1TotalTimeFinal);
-		System.out.printf("%15s%20s%20s%20s%20s%20s\n", "2.", r2Name, r2MileOneFinal, r2MileTwoFormatted, r2MileThreeFormatted, r2TotalTimeFinal);
-		System.out.printf("%15s%20s%20s%20s%20s%20s\n", "3.", r3Name, r3MileOneFinal, r3MileTwoFormatted, r3MileThreeFormatted, r3TotalTimeFinal);
-		System.out.printf("%15s%20s%20s%20s%20s%20s\n", "4.", r4Name, r4MileOneFinal, r4MileTwoFormatted, r4MileThreeFormatted, r4TotalTimeFinal);
-		System.out.printf("%15s%20s%20s%20s%20s%20s\n", "5.", r5Name, r5MileOneFinal, r5MileTwoFormatted, r5MileThreeFormatted, r5TotalTimeFinal);
+		System.out.printf("%15s%20s%20s%20s%20s%20s\n", "Runner Number", "Runner Name", "Split One Time",
+				"Split Two time", "Split Three Time", "Total Time");
+		System.out.printf("%15s%20s%20s%20s%20s%20s\n", "1.", r1Name, r1MileOneFinal, r1MileTwoFormatted,
+				r1MileThreeFormatted, r1TotalTimeFinal);
+		System.out.printf("%15s%20s%20s%20s%20s%20s\n", "2.", r2Name, r2MileOneFinal, r2MileTwoFormatted,
+				r2MileThreeFormatted, r2TotalTimeFinal);
+		System.out.printf("%15s%20s%20s%20s%20s%20s\n", "3.", r3Name, r3MileOneFinal, r3MileTwoFormatted,
+				r3MileThreeFormatted, r3TotalTimeFinal);
+		System.out.printf("%15s%20s%20s%20s%20s%20s\n", "4.", r4Name, r4MileOneFinal, r4MileTwoFormatted,
+				r4MileThreeFormatted, r4TotalTimeFinal);
+		System.out.printf("%15s%20s%20s%20s%20s%20s\n", "5.", r5Name, r5MileOneFinal, r5MileTwoFormatted,
+				r5MileThreeFormatted, r5TotalTimeFinal);
 	}
 
 }
