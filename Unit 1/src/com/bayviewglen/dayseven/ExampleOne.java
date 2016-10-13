@@ -29,7 +29,7 @@ public class ExampleOne {
 		
 		final int NUM_SIDES = 6;
 		// random number from 1 _> 6
-		int topOfDie = ((int)(Math.random() * NUM_SIDES + 1));
+		int topOfDie = (int)(Math.random() * NUM_SIDES + 1);
 		
 		
 		
