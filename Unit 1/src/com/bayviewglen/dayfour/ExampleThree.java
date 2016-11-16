@@ -10,7 +10,7 @@ public class ExampleThree {
 		
 		/***************** SYNTAX ERRORS ********************/
 		// Syntax Error is a compile error - those are the ones in red
-		// Those are the ones that have mistakes in the syntax of the code (you used incorrect Java grammer)
+		// Those are the ones that have mistakes in the syntax of the code (you used incorrect Java grammar)
 		// The code does not make sense to the compiler
 		// Java no UNDERSTAND!
 		

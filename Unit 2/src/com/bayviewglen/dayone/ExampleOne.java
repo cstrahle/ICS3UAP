@@ -19,23 +19,29 @@ public class ExampleOne {
 		
 		System.out.println(x);
 		System.out.println(Math.sqrt(x));
+		System.out.println("");
 		
 		System.out.println(y);
 		System.out.println(Math.abs(y));
+		System.out.println("");
 		
 		System.out.println(z); // comment
 		System.out.println(Math.abs(z));
+		System.out.println("");
 		
 		System.out.println(Math.sqrt(z));
 		System.out.println(Math.sqrt(y));
 		// System.out.println(Math.sqrt("Shon"));	// There is not a sqrt method/function that accepts Strings as arguments/parameters
+		System.out.println("");
 		
 		System.out.println(Math.sqrt(Math.abs(z)));
+		System.out.println("");
 		
 		System.out.println(Math.pow(z,2));
 		System.out.println(Math.pow(z,-2));
 		System.out.println(Math.pow(z, 1.2));	// because 1.2 is a radical
 		System.out.println(Math.pow(Math.abs(z), 1.2));	// because 1.2 is a radical
+		System.out.println("");
 		
 		System.out.println(Math.PI);
 		System.out.println(Math.ceil(Math.PI));
