@@ -7,10 +7,8 @@ public class Hangman {
 
 	public static void main(String[] args) {
 
-		// figure out how to check if word is alpha-numerical
-
+		//All my declarations
 		Scanner keyboard = new Scanner(System.in);
-		final String UPPER_ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 		final String UPPER_ALPHABET_SPACE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890 ";
 		String possibleGuesses = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 		String codedPhrase = "";
@@ -20,26 +18,27 @@ public class Hangman {
 		boolean validChoice = true;
 		boolean validName = true;
 		boolean validLetter = true;
-		boolean roundsContinue = true;
-		boolean triesContinue = true;
 		boolean gameOn = true;
 		boolean roundOn = true;
 		int rounds = 1;
 		int totalTries = 0;
+		final int SPACES_INB = 20;
+		final int MOD_TWO = 2;
+		final int DETERMINE_ROUND = 0;
+		final int PLAYER = 0;
+		final int DETERMINE_SCORER = 1;
 		final int MAX_GUESSES = 7;
 		final int MAX_POINTS = 9;
+		int maxRounds = 10;
 		final int DETERMINE_PLAYER = 2;
-		final int PLAYER_ONE = 1;
-		final int PLAYER_TWO = 0;
 		int p1Score = 0;
 		int p2Score = 0;
-		int p1ScoreSum = 0;
 		int finalScore = 0;
-		int p2ScoreSum = 0;
 		String guesser = null;
 		String phraseMaker = null;
+		boolean reduCheck = true;
 
-		// Initial name information
+		// Initial name information and beginning of game
 
 		System.out.print("Hello player one, please enter your name: ");
 		String playerOne = keyboard.nextLine();
@@ -48,26 +47,35 @@ public class Hangman {
 		String playerTwo = keyboard.nextLine();
 		System.out.println("");
 
-		// Round Start
+		System.out.println("Alright lets start! Your roles will switch after each round.");
+
+		// Beginning round information
 		while (gameOn) {
 			gameOn = false;
-			while (rounds <= 10) {
+			while (rounds <= maxRounds) {
 				codedPhrase = "";
 				totalTries = 0;
-				if (rounds % 2 == 0) {
+				
+				//Declaring who the guesser is and who is making the phrase
+				if (rounds % DETERMINE_PLAYER == PLAYER) {
 					guesser = playerOne;
 					phraseMaker = playerTwo;
 				} else {
 					guesser = playerTwo;
 					phraseMaker = playerOne;
 				}
+				
+				//Round starts
 				System.out.println("");
 				System.out.println("");
 				System.out.println("-----------Round " + rounds + "-----------");
-				System.out.print(phraseMaker + ", please enter your word of choice (only alpha-numerical letters): ");
+				
+				//Entering the phrase
+				System.out.print(phraseMaker + ", please enter your phrase of choice (only alpha-numerical letters): ");
 				String guessPhrase = keyboard.nextLine().toUpperCase().trim();
 				System.out.println("");
 
+				//Checking if all the letters in the phrase are alpha-numerical
 				finalScore = 9;
 				possibleGuesses = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 				for (int i = 0; i < guessPhrase.length(); i++) {
@@ -81,11 +89,13 @@ public class Hangman {
 						validName = true;
 					}
 				}
-
-				for (int k = 0; k < 20; k++) {
+				
+				//Creates space between guessing and the actual phrase
+				for (int k = 0; k < SPACES_INB; k++) {
 					System.out.println("");
 				}
-
+				
+				//Assigning each character either an _ (letter) or / (space)
 				for (int j = 0; j < guessPhrase.length(); j++) {
 
 					if ((int) guessPhrase.charAt(j) >= 65 && (int) guessPhrase.charAt(j) <= 90
@@ -95,6 +105,8 @@ public class Hangman {
 						codedPhrase += "/ ";
 					}
 				}
+				
+				//Guessing begins
 				System.out.println("");
 				System.out.println(guesser + ", time to start guessing!");
 
@@ -156,18 +168,18 @@ public class Hangman {
 							if (codedPhrase.indexOf('_') == LETTER_CHECK) {
 								System.out.println("");
 								System.out.println(
-										"Congradulations" + guesser + "! You correctly guessed all the letters.");
+										"Congratulations" + guesser + "! You correctly guessed all the letters.");
 								totalTries++;
 								roundOn = false;
 							}
 
-							if (totalTries == 7 && codedPhrase.indexOf('_') != LETTER_CHECK) {
+							if (totalTries == MAX_GUESSES && codedPhrase.indexOf('_') != LETTER_CHECK) {
 								System.out.print(
-										"This is your final guess, you must imput what you think the phrase is: ");
+										"This is your final guess, you must input what you think the phrase is: ");
 								finalGuess = keyboard.nextLine().toUpperCase().trim();
 								if (finalGuess.equals(guessPhrase)) {
 									System.out.println("Correct!");
-									totalTries ++;
+									totalTries++;
 								} else {
 									System.out.println("Sorry that is incorrect");
 									totalTries = 9;
@@ -196,7 +208,7 @@ public class Hangman {
 
 				}
 
-				if (rounds % DETERMINE_PLAYER == 1) {
+				if (rounds % DETERMINE_PLAYER == DETERMINE_SCORER) {
 					p1Score += MAX_POINTS - totalTries;
 					rounds++;
 					roundOn = true;
@@ -204,12 +216,6 @@ public class Hangman {
 					p2Score += MAX_POINTS - totalTries;
 					rounds++;
 					roundOn = true;
-					/*
-					 * if (turns % PLAYER_DECIDER == IS_PLAYER_1_TURN) {
-					 * p1Points += MAX_POINTS - guesses; } else if (turns %
-					 * PLAYER_DECIDER == IS_PLAYER_2_TURN) { p2Points +=
-					 * MAX_POINTS - guesses; rounds++;
-					 */
 
 				}
 				System.out.println("");
@@ -218,18 +224,37 @@ public class Hangman {
 				System.out.println(playerTwo + ", your score is: " + p2Score);
 
 			}
+			if (rounds % MOD_TWO != DETERMINE_ROUND && p1Score > p2Score) {
+				System.out.println("Congratulations " + playerOne + ", you are victorious!");
+				gameOn = false;
+			} else if (rounds % MOD_TWO != DETERMINE_ROUND && p1Score < p2Score) {
+				System.out.println("Congratulations " + playerTwo + ", you are victorious!");
+				gameOn = false;
+			} else {
+				System.out.println("");
+				System.out.println("You have tied. You will continue until someone has won!");
+				maxRounds++;
+				gameOn = true;
+			}
 
 		}
-		/*
-		 * if (rounds == 10 && playerOneScore == playerTwoScore) {
-		 * System.out.println("Time for tie breakers!"); gameOn = false; } else
-		 * if (playerTwoScore > playerOneScore) {
-		 * System.out.println("Congratulations " + playerTwo +
-		 * " you have won the game."); } else if (playerOneScore >
-		 * playerTwoScore) { System.out.println("Congratulations " + playerOne +
-		 * " you have won the game."); } else { gameOn = true; }
-		 */
+		while (reduCheck) {
+			reduCheck = false;
+			System.out.println(
+					"Congrats on making it to the end! Did you enjoy playing my game? (Y) for yes and (N) for no.");
+			String playAgain = keyboard.nextLine().toUpperCase();
+			if (!(playAgain.equals("Y") || playAgain.equals("N"))) {
+				System.out.println("Please input Y or N (Its really not that hard): ");
+				reduCheck = true;
+			} else if (playAgain.equals("Y")) {
+				System.out.println("Great! It was fun to make!");
+			} else {
+				System.out.println(
+						"Ryan? I'm amazed you even got past the beginning! You probably would have enjoyed it more if you had stayed in Comp Sci.");
 
+			}
+		}
+		keyboard.close();
 	}
 
 }
