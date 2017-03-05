@@ -146,7 +146,7 @@ public class Hangman {
 								} else if (chosenLetter.length() < 1 || chosenLetter.length() > 1) {
 									System.out.print("ERROR - Please only enter one letter. Please retry: ");
 								} else if (possibleGuesses.indexOf(chosenLetter.charAt(0)) == LETTER_CHECK) {
-									System.out.print("ERROR - You have already imputed this number, please retry: ");
+									System.out.print("ERROR - You have already inputed this number, please retry: ");
 								} else {
 									validLetter = true;
 								}
